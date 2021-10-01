@@ -18,7 +18,7 @@ watch_data = []
 
 print('Collecting Data...')
 for i, link in enumerate(tqdm(links)):
-    print(link)
+   
     scraper.driver.get(link)
     sleep(0.5)
     try:
@@ -26,7 +26,7 @@ for i, link in enumerate(tqdm(links)):
         
         store.download_images(src, i)
         watch_data.append(scraper.get_properties(link))
-        print(watch_data)
+       
     except NoSuchElementException:
         pass
 

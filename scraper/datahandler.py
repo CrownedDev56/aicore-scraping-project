@@ -15,7 +15,7 @@ import json
 class DataHandler():
     s3_client = boto3.client('s3')
     try:
-        path_to_json = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dbdetailss.json')
+        path_to_json = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dbdetails.json')
         with open(path_to_json) as json_file:
             data = json.load(json_file)
             for d in data['db_details']:
@@ -28,7 +28,7 @@ class DataHandler():
                 _PORT = d["port"]
     
     except FileNotFoundError:
-        print("please upload database server details in json file, which can be found in the module found at: ", os.getcwd())
+        print("please upload database server details in json file, which can be found in the scraper package located at: ", os.getcwd())
 
     def store_as_csv(self, data):
         df = pd.DataFrame(data)

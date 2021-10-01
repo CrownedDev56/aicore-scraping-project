@@ -3,8 +3,6 @@ from .datahandler import DataHandler
 from time import sleep
 from selenium.common.exceptions import NoSuchElementException
 from tqdm import tqdm
-from os import path
-import os
 
 
 scraper = MensWatches()

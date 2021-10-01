@@ -86,7 +86,7 @@ class MensWatches():
         lostlinks = []
         grid_watch = self.driver.find_element_by_xpath('//div[@class="gridBlock row"]')
         watch_list = grid_watch.find_elements_by_xpath('./div')
-        print('Collecting Links')
+        print('Collecting Links...')
         for i,  watch in enumerate(tqdm(watch_list)):
             try:
                 link = watch.find_element_by_xpath('.//a').get_attribute('href')
@@ -94,7 +94,7 @@ class MensWatches():
             except NoSuchElementException:
                 
                 lostlinks.append(link)
-        print('Link Collection Complete')
+        print('Link Collection Complete...')
         for i in lostlinks:
             print(f'Lost link: {i}')
         return links

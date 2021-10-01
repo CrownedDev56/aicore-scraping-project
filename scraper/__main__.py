@@ -7,7 +7,15 @@ from tqdm import tqdm
 
 scraper = MensWatches()
 store = DataHandler()
-pages = int(input("How many pages would you like to load? "))
+
+while True:
+    try:
+        pages = int(input("How many pages would you like to load?: "))
+    except ValueError:
+        print("Please enter a number...")
+    else:
+        break
+
 print('Starting Scraper...')
 scraper.accept_cookies()
 scraper.mens_watch_nav()

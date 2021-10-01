@@ -8,6 +8,8 @@ from urllib.error import ContentTooShortError
 import urllib.request
 import json
 
+import sqlalchemy
+
 
 
 
@@ -28,7 +30,8 @@ class DataHandler():
                 _PORT = d["port"]
     
     except FileNotFoundError:
-        print("please upload database server details in json file, which can be found in the scraper package located at: ", os.getcwd())
+        print("please upload database details to the scraper package in a json file, which can be located at: ", os.getcwd())
+    
 
     def store_as_csv(self, data):
         df = pd.DataFrame(data)
@@ -40,7 +43,7 @@ class DataHandler():
             engine = create_engine(f"{self._DATABASE_TYPE}+{self._DBAPI}://{self._USER}:{self._PASSWORD}@{self._ENDPOINT}:{self._PORT}/{self._DATABASE}")
             df.to_sql('mens_watches', engine, if_exists='replace', index=False)
         except AttributeError:
-            print("DB engine not connected...")
+            print("DB engine not connected... \nPlease enter details in a json file, which can be placed in the scraper package located at: ", os.getcwd())
 
     def download_images(self, src: str, i: int) -> None:
 

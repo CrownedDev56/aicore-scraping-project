@@ -1,0 +1,15 @@
+
+{ "db_details" : [
+    {
+    "type" : "",
+    "dbapi" : "",
+    "endpoint" : "",
+    "user" : "",
+    "password" : "",
+    "database" : "",
+    "port" : ""}
+]
+
+}
+
+  
